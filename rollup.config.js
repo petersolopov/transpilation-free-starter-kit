@@ -2,6 +2,21 @@ import urlResolve from "rollup-plugin-url-resolve";
 import { babel } from "@rollup/plugin-babel";
 import analyze from "rollup-plugin-analyzer";
 import { terser } from "rollup-plugin-terser";
+import fs from "fs";
+
+const htmlString = fs.readFileSync("./index.html", { encoding: "utf8" });
+
+const exec = /<script type="importmap">([\s\S]*?)<\/script>/g.exec(htmlString);
+const importMaps = JSON.parse(exec[1]);
+
+const importMapsPlugin = () => ({
+  resolveId(source) {
+    if (source in importMaps.imports) {
+      return importMaps.imports[source];
+    }
+    return null;
+  },
+});
 
 export default [
   {
@@ -9,6 +24,7 @@ export default [
     preserveEntrySignatures: "strict",
     plugins: [
       analyze({ summaryOnly: true }),
+      importMapsPlugin(),
       urlResolve(),
       terser(),
       babel({
@@ -16,7 +32,10 @@ export default [
         presets: [
           ["@babel/preset-env", { targets: ["defaults", "not ie 11"] }],
         ],
-        plugins: ["@babel/plugin-proposal-class-properties"],
+        plugins: [
+          "@babel/plugin-proposal-class-properties",
+          ["babel-plugin-htm", { import: "preact" }],
+        ],
       }),
     ],
     output: [
@@ -31,11 +50,15 @@ export default [
     input: "src/init.js",
     preserveEntrySignatures: "strict",
     plugins: [
+      importMapsPlugin(),
       urlResolve(),
       babel({
         babelHelpers: "bundled",
         presets: [["@babel/preset-env", { targets: { ie: "11" } }]],
-        plugins: ["@babel/plugin-proposal-class-properties"],
+        plugins: [
+          "@babel/plugin-proposal-class-properties",
+          ["babel-plugin-htm", { import: "preact" }],
+        ],
       }),
       terser(),
     ],

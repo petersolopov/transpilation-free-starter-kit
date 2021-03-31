@@ -1,19 +1,31 @@
-import {
-  html,
-  render,
-} from "https://unpkg.com/htm@3.0.2/preact/standalone.module.js";
+import { html, render } from "htm/preact";
+import { Router, Route } from "preact-router";
 
-/** @type {import('preact').FunctionalComponent<{name: string}>} */
-const App = ({ name }) => {
-  return html`<div>Hello ${name}</div>`;
+import { lazy } from "./helpers.js";
+import Menu from "./Menu.js";
+
+const AboutPageLazy = lazy(() => import("./About.js"));
+
+/** @type {import('preact').FunctionComponent<{ name: string }>} */
+const HomePage = ({ name }) => {
+  return html`<div>${name} page</div>`;
 };
 
+function App() {
+  return html`
+    <${Menu}/>
+    <${Router}>
+      <${Route} default component=${() => html`<${HomePage} name="Home" />`} />
+      <${Route} path="/about" component=${AboutPageLazy} />
+    </Router>
+  `;
+}
 function renderApp() {
   const element = document.getElementById("app");
 
   if (!element) throw new Error("element is not found");
 
-  render(html`<${App} name="world" />`, element);
+  render(html`<${App} />`, element);
 }
 
 renderApp();

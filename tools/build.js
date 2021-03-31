@@ -56,7 +56,12 @@ async function copyHTML() {
       }
     </script>`;
 
+  const exec = /<script type="importmap">([\s\S]*?)<\/script>/g.exec(
+    htmlString
+  );
+
   const template = htmlString
+    .replace(exec[0], "")
     .split("\n")
     .map((line) => {
       if (line.includes(originScriptSrc)) {
