@@ -1,17 +1,17 @@
 import {
-  h,
+  html,
   render,
-} from "https://unpkg.com/preact@10.5.13/dist/preact.module.js";
-import htm from "https://unpkg.com/htm@3.0.4/dist/htm.module.js";
+} from "https://unpkg.com/htm@3.0.2/preact/standalone.module.js";
 
-const html = htm.bind(h);
-
+/** @type {import('preact').FunctionalComponent<{name: string}>} */
 const App = ({ name }) => {
   return html`<div>Hello ${name}</div>`;
 };
 
 function renderApp() {
   const element = document.getElementById("app");
+
+  if (!element) throw new Error("element is not found");
 
   render(html`<${App} name="world" />`, element);
 }

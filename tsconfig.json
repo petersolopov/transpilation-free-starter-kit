@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "allowJs": true /* Allow javascript files to be compiled. */,
+    "checkJs": true /* Report errors in .js files. */,
+    "noEmit": true /* Do not emit outputs. */,
+    "strict": true /* Enable all strict type-checking options. */
+  },
+  "include": ["src/**/*"]
+}
