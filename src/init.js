@@ -20,6 +20,7 @@ function App() {
     </Router>
   `;
 }
+
 function renderApp() {
   const element = document.getElementById("app");
 

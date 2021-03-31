@@ -1,4 +1,3 @@
-import urlResolve from "rollup-plugin-url-resolve";
 import { babel } from "@rollup/plugin-babel";
 import analyze from "rollup-plugin-analyzer";
 import { terser } from "rollup-plugin-terser";
@@ -25,7 +24,6 @@ export default [
     plugins: [
       analyze({ summaryOnly: true }),
       importMapsPlugin(),
-      urlResolve(),
       terser(),
       babel({
         babelHelpers: "bundled",
@@ -51,7 +49,6 @@ export default [
     preserveEntrySignatures: "strict",
     plugins: [
       importMapsPlugin(),
-      urlResolve(),
       babel({
         babelHelpers: "bundled",
         presets: [["@babel/preset-env", { targets: { ie: "11" } }]],
