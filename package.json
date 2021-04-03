@@ -7,6 +7,8 @@
   "scripts": {
     "prettier:check": "prettier --check './**/*.{js,json,html,css}'",
     "prettier:write": "prettier --write './**/*.{js,json,html,css}'",
+    "serve": "serve",
+    "tsc": "tsc",
     "build": "node tools/build.js"
   },
   "keywords": [],
