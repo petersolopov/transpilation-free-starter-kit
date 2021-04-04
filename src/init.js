@@ -1,5 +1,6 @@
 import { html, render } from "htm/preact";
 import { Router, Route } from "preact-router";
+import history from "./history.js";
 
 import { lazy } from "./helpers.js";
 import Menu from "./Menu.js";
@@ -14,7 +15,7 @@ const HomePage = ({ name }) => {
 function App() {
   return html`
     <${Menu}/>
-    <${Router}>
+    <${Router} history=${history.createHashHistory()}>
       <${Route} default component=${() => html`<${HomePage} name="Home" />`} />
       <${Route} path="/about" component=${AboutPageLazy} />
     </Router>

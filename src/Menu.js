@@ -12,6 +12,13 @@ function Menu() {
       <li class=${s.li}>
         <a href="/about">about</a>
       </li>
+      <li class=${s.li}>
+        <a
+          href="https://github.com/petersolopov/transpilation-free-starter-kit"
+        >
+          github
+        </a>
+      </li>
     </ul>
   `;
 }
