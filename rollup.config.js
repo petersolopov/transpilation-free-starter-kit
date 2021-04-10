@@ -19,7 +19,7 @@ const importMapsPlugin = () => ({
 
 export default [
   {
-    input: "src/init.js",
+    input: "src/index.js",
     preserveEntrySignatures: "strict",
     plugins: [
       analyze({ summaryOnly: true }),
@@ -45,7 +45,7 @@ export default [
     ],
   },
   {
-    input: "src/init.js",
+    input: "src/index.js",
     preserveEntrySignatures: "strict",
     plugins: [
       importMapsPlugin(),

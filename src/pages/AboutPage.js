@@ -1,7 +1,7 @@
 import { html } from "htm/preact";
 
-function About() {
+const AboutPage = () => {
   return html`<div>About page</div>`;
-}
+};
 
-export default About;
+export default AboutPage;

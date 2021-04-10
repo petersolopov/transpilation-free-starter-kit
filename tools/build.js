@@ -34,7 +34,7 @@ async function copyHTML() {
   const htmlString = fs.readFileSync(path.resolve(__dirname, "./index.html"), {
     encoding: "utf-8",
   });
-  const originScriptSrc = "/init.js";
+  const originScriptSrc = "/index.js";
   const timeStamp = Date.now();
 
   const htmlInitScript = `
@@ -42,7 +42,7 @@ async function copyHTML() {
     <script src="//unpkg.com/regenerator-runtime@0.13.7/runtime.js"></script>
 
     <script>
-      import("/js/es/init.js?${timeStamp}");
+      import("/js/es/index.js?${timeStamp}");
       window.supportsDynamicImport = true;
     </script>
     <script>
@@ -50,7 +50,7 @@ async function copyHTML() {
         var systemJsLoaderTag = document.createElement('script');
         systemJsLoaderTag.src = 'https://unpkg.com/systemjs@6.8.3/dist/s.min.js';
         systemJsLoaderTag.addEventListener('load', function () {
-          window.System.import('/js/system/init.js?${timeStamp}');
+          window.System.import('/js/system/index.js?${timeStamp}');
         });
         document.head.appendChild(systemJsLoaderTag);
       }

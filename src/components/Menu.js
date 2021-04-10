@@ -1,8 +1,8 @@
 import { html } from "htm/preact";
 import j2c from "j2c";
-import { useStyles } from "./helpers.js";
+import { useStyles } from "../helpers/useStyles.js";
 
-function Menu() {
+const Menu = () => {
   const s = useStyles(sheet);
   return html`
     <ul class=${s.ui}>
@@ -21,7 +21,7 @@ function Menu() {
       </li>
     </ul>
   `;
-}
+};
 
 const sheet = j2c.sheet({
   ".ui": {

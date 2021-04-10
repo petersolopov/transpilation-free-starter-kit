@@ -1,16 +1,12 @@
 import { html, render } from "htm/preact";
 import { Router, Route } from "preact-router";
-import history from "./history.js";
 
-import { lazy } from "./helpers.js";
-import Menu from "./Menu.js";
+import history from "./helpers/history.js";
+import { lazy } from "./helpers/lazy.js";
+import Menu from "./components/Menu.js";
+import HomePage from "./pages/HomePage.js";
 
-const AboutPageLazy = lazy(() => import("./About.js"));
-
-/** @type {import('preact').FunctionComponent<{ name: string }>} */
-const HomePage = ({ name }) => {
-  return html`<div>${name} page</div>`;
-};
+const AboutPageLazy = lazy(() => import("./pages/AboutPage.js"));
 
 function App() {
   return html`
