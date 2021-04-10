@@ -13,7 +13,10 @@
     "tsc": "tsc",
     "build": "node tools/build.js"
   },
-  "keywords": ["bundler-free", "starter-kit"],
+  "keywords": [
+    "bundler-free",
+    "starter-kit"
+  ],
   "author": "Peter Solopov <peter@solopov.dev>",
   "license": "MIT",
   "devDependencies": {
