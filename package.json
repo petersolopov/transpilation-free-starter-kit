@@ -1,19 +1,21 @@
 {
-  "name": "modern-frontend",
+  "name": "transpilation-free-starter-kit",
+  "engines": {
+    "node": ">=14"
+  },
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Starter project with jsx-like syntax and type checking without transpilation.",
   "type": "module",
   "scripts": {
     "prettier:check": "prettier --check './**/*.{js,json,html,css}'",
     "prettier:write": "prettier --write './**/*.{js,json,html,css}'",
-    "serve": "serve",
+    "serve": "serve -s",
     "tsc": "tsc",
     "build": "node tools/build.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["bundler-free", "starter-kit"],
+  "author": "Peter Solopov <peter@solopov.dev>",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.13.14",
     "@babel/plugin-proposal-class-properties": "^7.13.0",

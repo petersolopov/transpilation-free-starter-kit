@@ -2,9 +2,12 @@
 
 This repo contains an example of how to create an application with jsx-like syntax and type checking without transpilation.
 
-## Motivation
+## Features
 
-Let's return to the basics when we just update files and refresh the page without bundlers.
+- No build step for development
+- Static typing via TypeScript
+- Looks like React application
+- Can build for IE11 and all modern browsers
 
 ## Getting Starting
 
@@ -12,17 +15,23 @@ Clone the repo, install dependencies and start a static server:
 
 ```bash
 git clone git@github.com:petersolopov/transpilation-free-starter-kit.git
+cd transpilation-free-starter-kit
 npm install
 npm run serve
 ```
 
-**Important**: Open link in browsers with [`import maps` supporting](https://caniuse.com/import-maps).
+**Important**: Open link in browsers that support [import maps](https://caniuse.com/import-maps).
 
 ## How It Works
 
 - It uses [htm](https://github.com/developit/htm) for jsx-like syntax.
 - Control javascript imports with [import-maps](https://github.com/wicg/import-maps)
 - Type checking javascript files with [typescript + jsdocs](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html).
+
+## Restrictions
+
+- Dependencies should be ES modules
+- Type checking in tagged templates (WIP)
 
 ## Building App
 
