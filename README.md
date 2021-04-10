@@ -14,8 +14,8 @@ This repo contains an example of how to create an application with jsx-like synt
 Clone the repo, install dependencies and start a static server:
 
 ```bash
-git clone git@github.com:petersolopov/transpilation-free-starter-kit.git
-cd transpilation-free-starter-kit
+git clone -o template -b main --single-branch git@github.com:petersolopov/transpilation-free-starter-kit.git my-app
+cd my-app
 npm install
 npm run serve
 ```
