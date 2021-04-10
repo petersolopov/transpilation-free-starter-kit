@@ -39,7 +39,7 @@ async function copyHTML() {
 
   const htmlInitScript = `
     <script src="//polyfill.io/v3/polyfill.min.js"></script>
-    <script src="//unpkg.com/regenerator-runtime@0.13.7/runtime.js"></script>
+    <script src="public/regenerator-runtime.js"></script>
 
     <script>
       import("/js/es/index.js?${timeStamp}");
@@ -48,7 +48,7 @@ async function copyHTML() {
     <script>
       if (!window.supportsDynamicImport) {
         var systemJsLoaderTag = document.createElement('script');
-        systemJsLoaderTag.src = 'https://unpkg.com/systemjs@6.8.3/dist/s.min.js';
+        systemJsLoaderTag.src = 'public/s.min.js';
         systemJsLoaderTag.addEventListener('load', function () {
           window.System.import('/js/system/index.js?${timeStamp}');
         });
