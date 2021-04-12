@@ -43,6 +43,8 @@ npm run build
 
 [93% of users](https://caniuse.com/es6-module) are now running browsers with support for ES modules. That's why it creates two versions of the app: ES6 modules for modern browsers and SystemJS modules for legacy browsers.
 
+Built code does not contain import maps and es-modules-shims.
+
 **Supports**: IE11 and all modern browsers.
 
 ## LICENSE
