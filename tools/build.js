@@ -67,8 +67,14 @@ async function copyHTML() {
       if (line.includes(originScriptSrc)) {
         return htmlInitScript;
       }
+
+      if (line.includes("dist/es-module-shims.min.js")) {
+        return null;
+      }
+
       return line;
     })
+    .filter(Boolean)
     .join("\n");
 
   fs.writeFileSync(

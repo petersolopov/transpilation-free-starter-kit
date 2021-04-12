@@ -20,12 +20,11 @@ npm install
 npm run serve
 ```
 
-**Important**: Open link in browsers that support [import maps](https://caniuse.com/import-maps).
-
 ## How It Works
 
 - It uses [htm](https://github.com/developit/htm) for jsx-like syntax.
 - Control javascript imports with [import-maps](https://github.com/wicg/import-maps)
+- [es-module-shims](https://github.com/guybedford/es-module-shims) for browsers that do not support import maps.
 - Type checking javascript files with [typescript + jsdocs](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html).
 
 ## Restrictions
