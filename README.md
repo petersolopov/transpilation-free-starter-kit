@@ -30,7 +30,8 @@ npm run serve
 ## Restrictions
 
 - Dependencies should be ES modules
-- Type checking in tagged templates (WIP)
+- Type checking in tagged templates (work in progress)
+- Trailing slashes in import maps not properly support when building app (work in progress)
 
 ## Building App
 
