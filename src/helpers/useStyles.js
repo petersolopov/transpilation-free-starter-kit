@@ -1,21 +1,14 @@
-import { useEffect } from "preact/hooks";
-
-let styleId = 0;
+import { useMemo } from "preact/hooks";
 
 /**
- * @typedef {{[key: string]: string}} Sheet
- * @type {(sheet: Sheet) => Sheet }
+ * @typedef {import('jss').StyleSheet} StyleSheet
+ * @typedef {import('jss').Classes} Classes
+ * @type {(sheet: StyleSheet) => Classes}
  */
 export function useStyles(sheet) {
-  useEffect(() => {
-    const style = document.createElement("style");
-    style.innerHTML = sheet.toString();
-    const id = `j2s-${styleId++}`;
-    style.id = id;
-    if (!document.getElementById(id)) {
-      document.getElementsByTagName("head")[0]?.appendChild(style);
-    }
+  useMemo(() => {
+    sheet.attach();
   }, [sheet]);
 
-  return sheet;
+  return sheet.classes;
 }

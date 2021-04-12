@@ -1,9 +1,10 @@
 import { html } from "htm/preact";
-import j2c from "j2c";
 import { useStyles } from "../helpers/useStyles.js";
+import jss from "jss";
 
 const Menu = () => {
   const s = useStyles(sheet);
+
   return html`
     <ul class=${s.ui}>
       <li class=${s.li}>
@@ -23,14 +24,14 @@ const Menu = () => {
   `;
 };
 
-const sheet = j2c.sheet({
-  ".ui": {
-    listStyle: "none",
+const sheet = jss.createStyleSheet({
+  ui: {
+    "list-style": "none",
     padding: 0,
     display: "flex",
   },
-  ".li": {
-    paddingRight: "4px",
+  li: {
+    "padding-right": "4px",
   },
 });
 
